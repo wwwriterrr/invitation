@@ -1,10 +1,10 @@
-import styles from './App.module.css';
-import { Mail } from './components';
+import { BrowserRouter } from 'react-router-dom';
+import { Page } from './components';
 
 export const App = () => {
     return (
-        <div className={styles.page}>
-            <Mail />
-        </div>
+        <BrowserRouter>
+            <Page />
+        </BrowserRouter>
     )
 }

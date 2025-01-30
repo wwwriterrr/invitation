@@ -1,0 +1,81 @@
+.wrap{
+    position: relative;
+    display: flex;align-items: center;justify-content: center;
+    width: 100%;height: calc(100vh - 100px);
+    padding: 40px 0 0 0;
+    background-image: url('../../../assets/backgr.jpg');
+    background-position: center center;background-size: cover;
+    color: #f9f2dd;
+    overflow: hidden;
+}
+
+.friends{
+    position: absolute;z-index: 9;left: 0;top: 100px;width: 100%;
+    display: flex;flex-direction: column;align-items: center;
+    padding: 0 20px;
+    font-family: 'Great Vibes', serif;font-size: 32px;
+    color: #fff;
+}
+
+.newlyweds{
+    position: relative;z-index: 10;
+    display: flex;flex-direction: column;gap: -10px;
+    align-items: center;justify-content: center;
+    font-family: 'Great Vibes', serif;
+}
+
+.newlyweds :global(span){
+    
+}
+
+.he{
+    font-size: 70px;padding-right: 150px;
+}
+
+.and{
+    font-size: 40px;margin: -28px 0 -38px 0;
+}
+
+.she{
+    font-size: 80px;padding-left: 150px;
+}
+
+.date{
+    position: absolute;z-index: 10;
+    left: 0;bottom: 50px;width: 100%;text-align: center;
+    font-family: 'Great Vibes', serif;font-size: 40px;
+    color: #fff;
+}
+
+.flower{
+    position: absolute;object-position: center;object-fit: contain;
+}
+
+.flower2{
+    z-index: 1;
+    width: 500px;height: 260px;
+    top: 44px;right: -77px;
+    transform: rotate(151deg);
+}
+
+.flower3{
+    z-index: 1;
+    width: 350px;height: 454px;
+    left: -15px;bottom: 12px;
+    transform: rotate(40deg);
+    opacity: .4;
+}
+
+.flower4{
+    z-index: 2;
+    width: 350px;height: 544px;
+    transform: rotate(58deg);
+    left: -65px;bottom: -100px;
+}
+
+.flower5{
+    z-index: 2;
+    width: 302px;height: 500px;
+    transform: rotate(222deg);
+    right: -86px;top: -71px;
+}

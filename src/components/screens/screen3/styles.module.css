@@ -1,0 +1,6 @@
+.wrap{
+    position: relative;
+    padding: 60px 0;
+    background-image: url('../../../assets/backgr1.jpg');background-size: cover;background-position: center center;
+}
+

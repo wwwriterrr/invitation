@@ -1,0 +1,50 @@
+.wrap{
+    position: relative;
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.photo{
+    display: flex;align-items: center;justify-content: center;
+    padding: 106px 0 84px 0;
+}
+
+.container{
+    position: relative;
+    width: 350px;height: 350px;
+}
+
+.image{
+    position: relative;z-index: 4;
+    width: 100%;height: 100%;border-radius: 50%;
+    object-fit: cover;object-position: center;
+}
+
+.flower{
+    position: absolute;z-index: 2;
+    object-fit: contain;object-position: center;
+    left: 0;top: 0;
+}
+
+.flower4{
+    width: 260px;height: 400px;
+    transform: translate(-160px, -131px) rotate(-58deg) scale(1);
+}
+
+.flower5{
+    width: 234px;height: 390px;
+    transform: translate(236px, 64px) rotate(131deg) scale(1);
+}
+
+.textWrap{
+    margin: 50px auto 0 auto;width: 700px;
+}
+
+.textTitle{
+    font-family: var(--title-font);text-align: center;
+    font-size: 42px;
+}
+
+.textContent{
+    font-size: 18px;
+}

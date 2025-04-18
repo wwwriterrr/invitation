@@ -1,0 +1,12 @@
+:root{
+    --title-font: 'Great Vibes', serif;
+}
+
+body{
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;font-weight: 300;
+}
+
+h1, h2, h3{
+    text-align: center;margin: 0;padding: 0;
+}

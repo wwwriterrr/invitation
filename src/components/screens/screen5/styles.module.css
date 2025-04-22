@@ -1,0 +1,51 @@
+.wrap{
+    position: relative;
+    padding: 80px 80px 120px 80px;
+    display: grid;
+    grid-template: 'ttl ttl' auto 'ct img' auto / 1fr 300px;
+    gap: 30px 40px;
+    background-image: url('../../../assets/backgr1.jpg');
+    background-size: cover;background-position: center center;
+    overflow: hidden;
+}
+
+.title{
+    grid-area: ttl;
+    font-family: var(--title-font);
+    font-size: 52px;
+    color: #7b7875;
+}
+
+.content{
+    grid-area: ct;
+    align-self: center;
+    display: flex;flex-direction: column;
+    gap: 30px;
+}
+
+.row{
+    display: flex;
+    gap: 30px;
+}
+
+.marker{
+    position: relative;top: -10px;
+    flex-shrink: 0;
+    font-family: var(--title-font);
+    font-size: 50px;
+    color: #bfb074;
+}
+
+.item{
+    font-size: 18px;
+}
+
+.imgWrap{
+    grid-area: img;
+    align-self: center;
+    position: relative;
+}
+
+.img{
+    width: 100%;height: auto;
+}

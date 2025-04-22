@@ -1,0 +1,88 @@
+.wrap{
+    position: relative;
+    padding: 60px 40px;
+    background-color: #fff;
+}
+
+.title{
+    margin: 0 0 40px 0;
+    font-family: var(--title-font);
+    font-size: 42px;
+    color: #c1b388;
+}
+
+.time{
+
+}
+
+.item{
+    position: relative;
+    display: grid;
+    grid-template: 'dt ln tl' auto 'dt ln ct' auto / 150px auto 1fr;
+    gap: 0 30px;
+}
+
+.firstItem{
+
+}
+
+.lastItem{
+
+}
+
+.dt{
+    grid-area: dt;
+    justify-self: end;
+    font-size: 20px;font-weight: 700;
+}
+
+.line{
+    grid-area: ln;
+    display: grid;
+    grid-template: 'dot' auto 'line' 1fr / auto;
+    padding: 8px 0 0 0;
+}
+
+.dot{
+    grid-area: dot;
+    justify-self: center;
+    position: relative;
+    width: 14px;height: 14px;
+    border-radius: 50%;
+    background-color: #b8c8b4;
+    box-sizing: border-box;
+}
+
+.firstItem .dot{
+    background-color: transparent;
+    border: 2px solid #b8c8b4;
+}
+
+.hr{
+    grid-area: line;
+    justify-self: center;
+    position: relative;
+    width: 2px;
+    height: calc(100% + 8px);
+    background-color: #b8c8b4;
+}
+
+.firstItem .hr{
+    top: 4px;
+    height: calc(100% + 4px);
+}
+
+.lastItem .hr{
+    display: none;
+}
+
+.itemTitle{
+    grid-area: tl;
+    font-size: 20px;
+}
+
+.itemContent{
+    grid-area: ct;
+    padding: 20px 0 40px 0;
+    font-size: 16px;
+}

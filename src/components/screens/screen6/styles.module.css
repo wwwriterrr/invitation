@@ -1,0 +1,50 @@
+.wrap{
+    position: relative;
+    padding: 100px 80px 140px 80px;
+    background-color: #fff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.flower{
+    position: absolute;z-index: 1;
+    left: 0;bottom: 0;
+    width: 700px;height: auto;
+    transform: translate(-54px, -31px) rotate(170deg);
+    opacity: .5;
+}
+
+.title{
+    position: relative;z-index: 2;
+    margin: 0 0 30px 0;
+    font-family: var(--title-font);
+    font-size: 52px;
+    color: #c1b388;
+}
+
+.beforeText{
+    position: relative;z-index: 2;
+    margin: 0 0 40px 0;
+    font-size: 18px;
+}
+
+.colors{
+    position: relative;z-index: 2;
+    margin: 0 0 40px 0;
+    display: flex;align-items: center;justify-content: center;
+    gap: 30px;
+}
+
+.color{
+    width: 90px;height: 90px;
+    border-radius: 50%;
+}
+
+.afterText{
+    position: relative;z-index: 2;
+    font-size: 20px;
+}
+
+.afterText b{
+    font-weight: 700;
+}

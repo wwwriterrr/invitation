@@ -20,6 +20,9 @@ export const Screen3: FC = () => {
                     duration: 1.5,
                     ease: 'easeOut',
                 }}
+                viewport={{
+                    once: true,
+                }}
             >
                 <motion.h2 
                     className={styles.title}
@@ -35,6 +38,9 @@ export const Screen3: FC = () => {
                         delay: .5,
                         duration: 1.5,
                         ease: 'easeOut',
+                    }}
+                    viewport={{
+                        once: true,
                     }}
                 >Место проведения</motion.h2>
             </motion.div>

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styles from './Dates.module.css';
+import {motion} from 'framer-motion';
 
 export const DatesBlock: FC = () => {
     return (
@@ -7,7 +8,25 @@ export const DatesBlock: FC = () => {
             <h2 className={styles.title}>
                 Дата проведения
             </h2>
-            <div className={styles.date}>
+            <motion.div 
+                className={styles.date}
+                initial={{
+                    opacity: 0,
+                    y: 50,
+                }}
+                whileInView={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    delay: .4,
+                    ease: 'easeOut',
+                }}
+                viewport={{
+                    once: true,
+                }}
+            >
                 <div className={`${styles.side} ${styles.left}`}>
                     <span>июнь</span>
                 </div>
@@ -17,9 +36,9 @@ export const DatesBlock: FC = () => {
                     <span>2025</span>
                 </div>
                 <div className={`${styles.side} ${styles.right}`}>
-                    <span>в 15:00</span>
+                    <span>15:00</span>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

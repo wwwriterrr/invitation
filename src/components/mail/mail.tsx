@@ -33,7 +33,7 @@ export const MailList: FC<{status: MailStatuses}> = ({status}) => {
                 },
             }}
         >
-            <MailOrnament size={50} fill={'#f9f2dd'} />
+            <MailOrnament size={50} fill={'#b9a87e'} />
             <div className={styles.text}>Приглашение</div>
         </motion.div>
     )

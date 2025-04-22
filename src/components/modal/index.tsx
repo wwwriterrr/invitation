@@ -34,6 +34,20 @@ export const MailModal: FC<TProps> = ({status, setStatus}) => {
                     >
                         <Invitation />
                     </motion.div>
+                    <motion.div 
+                        className={styles.time}
+                        initial={{
+                            opacity: 0,
+                        }}
+                        animate={{
+                            opacity: 1,
+                        }}
+                        transition={{
+                            delay: 5,
+                        }}
+                    >
+                        Обратный отсчет
+                    </motion.div>
                 </div>
             ) : null}
         </>

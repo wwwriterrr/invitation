@@ -1,34 +1,37 @@
 import styles from './styles.module.css';
-import { useLocation } from 'react-router-dom';
+/* import { useLocation } from 'react-router-dom';
 import data from '../../modal/friends.json';
 import { useEffect, useState } from 'react';
-import { TUser } from '../../../core/type';
+import { TUser } from '../../../core/type'; */
 import flower2 from '../../../assets/flower2.svg';
 import flower3 from '../../../assets/flower3.svg';
 import flower4 from '../../../assets/flower4.svg';
 import flower5 from '../../../assets/flower5.svg';
 import {motion} from 'framer-motion';
+import { useAppSelector } from '../../../services/store';
+import { getUser } from '../../../services/auth/slice';
 
-const Friends = new Map<string, TUser>();
+/* const Friends = new Map<string, TUser>();
 
 Object.keys(data).map(key => {
     const user: TUser = data[key];
     Friends.set(key, user);
-})
+}) */
 
 export const Screen1 = () => {
-    const location = useLocation();
-    const [user, setUser] = useState<TUser | null>(null);
+    // const location = useLocation();
+    // const [user, setUser] = useState<TUser | null>(null);
 
-    useEffect(() => {
+    /* useEffect(() => {
         const {hash} = location;
         setUser(Friends.get(hash) || null);
-    }, [location])
+    }, [location]) */
+    const user = useAppSelector(getUser);
 
     return (
         <div className={styles.wrap}>
             <div className={styles.friends}>
-                <span>{user ? `Дорогие ${user.name}!` : `Дорогой гость!`}</span>
+                <span>{user ? `${user.name.includes(' и ') ? 'Дорогие' : ''} ${user.name}!` : `Дорогой гость!`}</span>
                 <span style={{marginTop: -14}}>Рады пригласить Вас на нашу свадьбу!</span>
             </div>
             <div className={styles.newlyweds}>

@@ -8,3 +8,15 @@ export type TIconProps = {
 export type TUser = {
     name: string,
 }
+
+export type TGuestData = {
+    willBe?: boolean,
+    alcohol?: string[],
+    children?: number,
+}
+
+export type TGuest = {
+    name: string,
+    token: string,
+    data: TGuestData,
+}

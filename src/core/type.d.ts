@@ -13,6 +13,7 @@ export type TGuestData = {
     willBe?: boolean,
     alcohol?: string[],
     children?: number,
+    formSended?: boolean,
 }
 
 export type TGuest = {

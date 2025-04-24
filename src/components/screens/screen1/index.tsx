@@ -11,21 +11,7 @@ import {motion} from 'framer-motion';
 import { useAppSelector } from '../../../services/store';
 import { getUser } from '../../../services/auth/slice';
 
-/* const Friends = new Map<string, TUser>();
-
-Object.keys(data).map(key => {
-    const user: TUser = data[key];
-    Friends.set(key, user);
-}) */
-
 export const Screen1 = () => {
-    // const location = useLocation();
-    // const [user, setUser] = useState<TUser | null>(null);
-
-    /* useEffect(() => {
-        const {hash} = location;
-        setUser(Friends.get(hash) || null);
-    }, [location]) */
     const user = useAppSelector(getUser);
 
     return (

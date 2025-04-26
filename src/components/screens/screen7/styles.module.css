@@ -31,9 +31,18 @@
     gap: 12px 18px;
 }
 
+.inputRow{
+    display: flex;flex-direction: column;
+    gap: 6px;
+}
+
 .formText{
     width: 100%;
     font-weight: 500;
+}
+
+.inputText{
+
 }
 
 .notWillBe{

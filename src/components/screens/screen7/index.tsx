@@ -1,10 +1,13 @@
-import { ChangeEventHandler, type FormEventHandler, useEffect, useState } from 'react';
+import { ChangeEventHandler, type FormEventHandler, useEffect, useRef, useState } from 'react';
 import styles from './styles.module.css';
 import { Checkbox } from '../../checkbox';
 
 type TFormData = {
     willBe: boolean,
     alcohol: string[],
+    vineType?: string,
+    currentAlcohol?: string,
+    placement?: boolean,
 }
 
 const AlcoTranslate = (name: string) => {
@@ -25,6 +28,9 @@ const AlcoholList: string[] = [
 ]
 
 export const Screen7 = () => {
+    const vineRef = useRef<HTMLInputElement>(null);
+    const currentRef = useRef<HTMLInputElement>(null);
+
     const [data, setData] = useState<TFormData>({
         willBe: true,
         alcohol: [],
@@ -56,6 +62,28 @@ export const Screen7 = () => {
         }
     }
 
+    const placementChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
+        const input: HTMLInputElement = e.target;
+
+        if(input.value === 'yes'){
+            setData({...data, placement: true});
+        }else{
+            setData({...data, placement: false});
+        }
+    }
+
+    const vineChangeHandler = () => {
+        if(!vineRef.current) return;
+
+        data.vineType = vineRef.current.value;
+    }
+
+    const currentChangeHandler = () => {
+        if(!currentRef.current) return;
+
+        data.vineType = currentRef.current.value;
+    }
+
     return (
         <div className={styles.wrap}>
             <h2 className={styles.title}>Анкета</h2>
@@ -82,6 +110,59 @@ export const Screen7 = () => {
                                     iconFill={'#e6d5a1'}
                                 />
                             ))}
+                        </div>
+                        {data.alcohol.includes('vine') && !data.alcohol.includes('current') ? (
+                            <div className={`${styles.row} ${styles.inputRow}`}>
+                                <div className={styles.inputText}>
+                                    Какое вино вы предпочитаете?
+                                </div>
+                                <input 
+                                    className={styles.input} 
+                                    ref={vineRef} 
+                                    name={'vine_type'} 
+                                    value={data.vineType} 
+                                    onChange={vineChangeHandler}
+                                    placeholder={'Красное полусухое'}
+                                />
+                            </div>
+                        ) : null}
+                        {data.alcohol.includes('current') ? (
+                            <div className={`${styles.row} ${styles.inputRow}`}>
+                                <div className={styles.inputText}>
+                                    Укажите, какой алкоголь вы предпочитаете?
+                                </div>
+                                <input 
+                                    className={styles.input} 
+                                    ref={currentRef} 
+                                    name={'currentAlcohol'} 
+                                    value={data.currentAlcohol} 
+                                    onChange={currentChangeHandler}
+                                    placeholder={'Рисовая водка из Тайланда'}
+                                />
+                            </div>
+                        ) : null}
+                        <div className={styles.row}>
+                            <div className={styles.formText}>
+                                Мы забронировали дом для гостей, находящийся в 15 минутах ходьбы от ресторана. Потребуется ли вам размещение?
+                            </div>
+                            <Checkbox 
+                                name={'placement'} 
+                                type={'checkbox'} 
+                                value={'yes'}
+                                label={'Да, потребуется'}
+                                changeHandler={placementChangeHandler}
+                                checked={data.placement}
+                                iconFill={'#e6d5a1'}
+                            />
+                            <Checkbox 
+                                name={'placement'} 
+                                type={'checkbox'} 
+                                value={'no'}
+                                label={'Нет, не потребуется'}
+                                changeHandler={placementChangeHandler}
+                                checked={!data.placement}
+                                iconFill={'#e6d5a1'}
+                            />
                         </div>
                         <div className={styles.row}>
                             <button type={'submit'}>Отправить анкету</button>

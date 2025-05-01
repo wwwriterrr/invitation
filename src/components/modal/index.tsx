@@ -4,6 +4,7 @@ import { MailStatuses } from '../mail';
 import { motion } from 'framer-motion';
 import { Invitation } from './invitation';
 import { ModalOverlay } from './overlay';
+import { PageTimer } from '../timer';
 
 type TProps = {
     status: MailStatuses,
@@ -46,7 +47,7 @@ export const MailModal: FC<TProps> = ({status, setStatus}) => {
                             delay: 5,
                         }}
                     >
-                        Обратный отсчет
+                        <PageTimer />
                     </motion.div>
                 </div>
             ) : null}

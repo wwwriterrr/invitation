@@ -5,10 +5,10 @@ import {motion} from 'framer-motion';
 export const Screen6 = () => {
     const colors: string[] = [
         '#fff',
-        '#555',
-        '#666',
-        '#777',
-        '#000',
+        '#fff2e0',
+        '#c5d3c7',
+        '#3dacac',
+        '#07061a',
     ]
 
     return (

@@ -1,0 +1,35 @@
+.wrap{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title{
+    font-family: var(--title-font);
+    font-size: 40px;
+    color: #fff;
+}
+
+.text{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.repeatBtn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 44px;width: auto;
+    margin: 20px 0 0 0;
+    padding: 0 30px;
+    background-color: #e6d5a1;color: #716c66;
+    font-size: 16px;font-weight: 700;
+    border-radius: 22px;
+    outline: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+}

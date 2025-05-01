@@ -3,6 +3,8 @@ export type TIconProps = {
     width?: number | string,
     height?: number | string,
     fill?: string,
+    strokeWidth?: number,
+    duration?: number,
 }
 
 export type TUser = {

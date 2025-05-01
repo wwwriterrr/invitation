@@ -38,6 +38,7 @@
 .color{
     width: 90px;height: 90px;
     border-radius: 50%;
+    border: 3px solid #e6d5a1;
 }
 
 .afterText{

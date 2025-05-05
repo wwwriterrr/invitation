@@ -24,6 +24,7 @@ export const authSlice = createSlice({
     },
     selectors: {
         getUser: state => state.user,
+        getUserLoading: state => state.loading,
     },
     extraReducers: (builder) => {
         builder
@@ -45,7 +46,7 @@ export default authSlice.reducer;
 
 // export const {} = authSlice.actions;
 
-export const {getUser} = authSlice.selectors;
+export const {getUser, getUserLoading} = authSlice.selectors;
 
 export const {setUser} = authSlice.actions;
 

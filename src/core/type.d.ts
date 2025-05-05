@@ -12,10 +12,16 @@ export type TUser = {
 }
 
 export type TGuestData = {
+    formSend?: boolean,
     willBe?: boolean,
     alcohol?: string[],
-    children?: number,
-    formSended?: boolean,
+    vineType?: string,
+    currentAlcohol?: string,
+    placement?: boolean,
+    name?: string,
+    childrenSelect?: boolean,
+    childrenCount?: string,
+    local?: boolean,
 }
 
 export type TGuest = {

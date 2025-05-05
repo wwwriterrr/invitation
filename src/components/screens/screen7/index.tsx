@@ -6,18 +6,9 @@ import { getUser } from '../../../services/auth/slice';
 import { LoaderIcon } from '../../icons/loader';
 import { FormSuccess } from './success';
 import { NotWillBe } from './notWillBe';
+import { TGuestData } from '../../../core/type';
 
-export type TFormData = {
-    formSend?: boolean,
-    willBe: boolean,
-    alcohol: string[],
-    vineType?: string,
-    currentAlcohol?: string,
-    placement?: boolean,
-    name?: string,
-    childrenSelect?: boolean,
-    childrenCount?: string,
-}
+export type TFormData = TGuestData;
 
 const AlcoTranslate = (name: string) => {
     const dict: {[key in string]: string} = {
@@ -42,15 +33,21 @@ export const Screen7 = () => {
     const nameRef = useRef<HTMLInputElement>(null);
     const childrenRef = useRef<HTMLInputElement>(null);
 
-    const user = useAppSelector(getUser);
+    const user = useAppSelector(getUser)!;
 
     const [load, setLoad] = useState<boolean>(false);
 
-    const [data, setData] = useState<TFormData>({
-        willBe: true,
-        alcohol: [],
-        childrenCount: '0',
-    })
+    // const [data, setData] = useState<TFormData>({
+    //     willBe: true,
+    //     alcohol: [],
+    //     childrenCount: '0',
+    // })
+
+    const [data, setData] = useState<TFormData>(user.data);
+
+    if(typeof user.data.willBe === undefined){
+        setData({...data, willBe: true});
+    }
 
     const submitHandler: FormEventHandler = (e) => {
         e.preventDefault();
@@ -74,13 +71,13 @@ export const Screen7 = () => {
     const alcoholChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
         const input: HTMLInputElement = e.target;
 
-        if(data.alcohol.includes(input.value)){
+        if(data.alcohol?.includes(input.value)){
             const oldAlco = Array.from(data.alcohol);
             const index = oldAlco.indexOf(input.value);
             oldAlco.splice(index, 1);
             setData({...data, alcohol: oldAlco});
         }else{
-            setData({...data, alcohol: [...data.alcohol, input.value]});
+            setData({...data, alcohol: [...data.alcohol || [], input.value]});
         }
     }
 
@@ -156,7 +153,7 @@ export const Screen7 = () => {
                                 ) : null}
                                 <div className={styles.row}>
                                     <div className={styles.formText}>Какой алкоголь Вы предпочитаете?</div>
-                                    {(data.alcohol.includes('current') ? ['current'] : AlcoholList).map((item, i) => (
+                                    {(data.alcohol?.includes('current') ? ['current'] : AlcoholList).map((item, i) => (
                                         <Checkbox 
                                             key={`alcohol-${i}`}
                                             name={'alcohol'} 
@@ -164,12 +161,12 @@ export const Screen7 = () => {
                                             value={item}
                                             label={AlcoTranslate(item)}
                                             changeHandler={alcoholChangeHandler}
-                                            checked={data.alcohol.includes(item)}
+                                            checked={data.alcohol?.includes(item)}
                                             iconFill={'#e6d5a1'}
                                         />
                                     ))}
                                 </div>
-                                {data.alcohol.includes('vine') && !data.alcohol.includes('current') ? (
+                                {data.alcohol?.includes('vine') && !data.alcohol.includes('current') ? (
                                     <div className={`${styles.row} ${styles.inputRow}`}>
                                         <div className={styles.inputText}>
                                             Какое вино вы предпочитаете?
@@ -184,7 +181,7 @@ export const Screen7 = () => {
                                         />
                                     </div>
                                 ) : null}
-                                {data.alcohol.includes('current') ? (
+                                {data.alcohol?.includes('current') ? (
                                     <div className={`${styles.row} ${styles.inputRow}`}>
                                         <div className={styles.inputText}>
                                             Укажите, какой алкоголь вы предпочитаете?
@@ -199,29 +196,31 @@ export const Screen7 = () => {
                                         />
                                     </div>
                                 ) : null}
-                                <div className={styles.row}>
-                                    <div className={styles.formText}>
-                                        Мы забронировали дом для гостей, находящийся в 15 минутах ходьбы от ресторана. Потребуется ли вам размещение?
+                                {!user?.data.local ? (
+                                    <div className={styles.row}>
+                                        <div className={styles.formText}>
+                                            Мы забронировали дом для гостей. Потребуется ли вам размещение?
+                                        </div>
+                                        <Checkbox 
+                                            name={'placement'} 
+                                            type={'checkbox'} 
+                                            value={'yes'}
+                                            label={'Да, потребуется'}
+                                            changeHandler={placementChangeHandler}
+                                            checked={data.placement}
+                                            iconFill={'#e6d5a1'}
+                                        />
+                                        <Checkbox 
+                                            name={'placement'} 
+                                            type={'checkbox'} 
+                                            value={'no'}
+                                            label={'Нет, не потребуется'}
+                                            changeHandler={placementChangeHandler}
+                                            checked={!data.placement}
+                                            iconFill={'#e6d5a1'}
+                                        />
                                     </div>
-                                    <Checkbox 
-                                        name={'placement'} 
-                                        type={'checkbox'} 
-                                        value={'yes'}
-                                        label={'Да, потребуется'}
-                                        changeHandler={placementChangeHandler}
-                                        checked={data.placement}
-                                        iconFill={'#e6d5a1'}
-                                    />
-                                    <Checkbox 
-                                        name={'placement'} 
-                                        type={'checkbox'} 
-                                        value={'no'}
-                                        label={'Нет, не потребуется'}
-                                        changeHandler={placementChangeHandler}
-                                        checked={!data.placement}
-                                        iconFill={'#e6d5a1'}
-                                    />
-                                </div>
+                                ) : null}
                                 <div className={styles.row}>
                                     <div className={styles.formText}>
                                         Отметьте флажок, если вы будете с детьми:
@@ -239,7 +238,7 @@ export const Screen7 = () => {
                                 {data.childrenSelect ? (
                                     <div className={`${styles.row} ${styles.inputRow}`}>
                                         <div className={styles.inputText}>
-                                            Укажите количество детей:
+                                            Укажите количество детей и их возраст:
                                         </div>
                                         <input 
                                             className={styles.input} 
@@ -247,7 +246,7 @@ export const Screen7 = () => {
                                             name={'children_count'} 
                                             value={data.childrenCount} 
                                             onChange={childrenCountChangeHandler}
-                                            placeholder={'0'}
+                                            placeholder={'2 детей, 7 и 14 лет'}
                                         />
                                     </div>
                                 ) : null}

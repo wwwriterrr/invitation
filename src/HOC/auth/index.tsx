@@ -1,10 +1,16 @@
 import { useEffect, type FC } from 'react';
-import { useAppDispatch } from '../../services/store';
+import { useAppDispatch, useAppSelector } from '../../services/store';
 import { useLocation } from 'react-router-dom';
 import { fetchUser } from '../../services/auth/actions';
+import { getUser, getUserLoading } from '../../services/auth/slice';
+import styles from './styles.module.css';
+import { LoaderIcon } from '../../components/icons';
 
 export const AuthHOC: FC<{children: JSX.Element}> = ({children}) => {
     const dispatch = useAppDispatch();
+
+    const user = useAppSelector(getUser);
+    const loading = useAppSelector(getUserLoading);
 
     const location = useLocation();
 
@@ -19,6 +25,14 @@ export const AuthHOC: FC<{children: JSX.Element}> = ({children}) => {
     }, [])
 
     return (
-        <>{children}</>
+        <>{loading ? (
+            <div className={styles.loader}><LoaderIcon fill={'#fff'} size={42} /></div>
+        ) : (
+            <>
+                {user ? children : (
+                    <div className={styles.notFound}><span>404</span></div>
+                )}
+            </>
+        )}</>
     )
 }

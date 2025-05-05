@@ -112,7 +112,7 @@ export const Screen7 = () => {
         setData({...data, name: nameRef.current.value});
     }
 
-    const childrenSelectChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const childrenSelectChangeHandler: ChangeEventHandler<HTMLInputElement> = () => {
         if(data.childrenSelect){
             setData({...data, childrenSelect: false});
         }else{

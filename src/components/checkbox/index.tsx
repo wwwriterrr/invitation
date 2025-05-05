@@ -1,4 +1,4 @@
-import { type ChangeEventHandler, type FC, type RefObject, useRef } from 'react';
+import { type ChangeEventHandler, type FC } from 'react';
 import styles from './styles.module.css';
 import { CheckboxIcon } from '../icons';
 

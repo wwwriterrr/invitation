@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+// @ts-ignore
 import pluralize from 'pluralize-ru';
 
 export const PageTimer = () => {

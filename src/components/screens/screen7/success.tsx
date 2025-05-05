@@ -12,7 +12,7 @@ export const FormSuccess: FC<{data: TFormData, dataSetter: Dispatch<SetStateActi
         <div className={styles.wrap}>
             <SuccessIcon size={140} fill={'#e6d5a1'} />
             <h2 className={styles.title}>Анкета отправлена!</h2>
-            <div className={styles.text}>Благодарим Вас за предоставленную информацию!<br/>Вы можете повторно заполнить анкету, если у что-то поменяется.</div>
+            <div className={styles.text}>Благодарим Вас за предоставленную информацию!<br/>Вы можете повторно заполнить анкету, если у Вас что-то поменяется.</div>
             <button className={styles.repeatBtn} onClick={btnClickHandler}>Заполнить повторно</button>
         </div>
     )

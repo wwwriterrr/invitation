@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TGuest } from '../../core/type';
+import { TGuest, TGuestData } from '../../core/type';
 import { fetchUser } from './actions';
 // import { fetchUser } from './actions';
 
@@ -20,6 +20,9 @@ export const authSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<TGuest | null>) => {
             state.user = action.payload;
+        },
+        setUserData: (state, action: PayloadAction<TGuestData>) => {
+            if(state.user) state.user.data = action.payload;
         },
     },
     selectors: {
@@ -48,6 +51,6 @@ export default authSlice.reducer;
 
 export const {getUser, getUserLoading} = authSlice.selectors;
 
-export const {setUser} = authSlice.actions;
+export const {setUser, setUserData} = authSlice.actions;
 
 export type TAuthInternalActions = ReturnType<typeof authSlice.actions[keyof typeof authSlice.actions]>;

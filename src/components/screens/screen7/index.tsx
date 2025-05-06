@@ -1,12 +1,13 @@
 import { ChangeEventHandler, type FormEventHandler, useRef, useState } from 'react';
 import styles from './styles.module.css';
 import { Checkbox } from '../../checkbox';
-import { useAppSelector } from '../../../services/store';
+import { useAppDispatch, useAppSelector } from '../../../services/store';
 import { getUser } from '../../../services/auth/slice';
 import { LoaderIcon } from '../../icons/loader';
 import { FormSuccess } from './success';
 import { NotWillBe } from './notWillBe';
 import { TGuestData } from '../../../core/type';
+import { sendUserData } from '../../../services/auth/actions';
 
 export type TFormData = TGuestData;
 
@@ -35,6 +36,8 @@ export const Screen7 = () => {
 
     const user = useAppSelector(getUser)!;
 
+    const dispatch = useAppDispatch();
+
     const [load, setLoad] = useState<boolean>(false);
 
     // const [data, setData] = useState<TFormData>({
@@ -53,10 +56,17 @@ export const Screen7 = () => {
         e.preventDefault();
 
         setLoad(true);
-        setTimeout(() => {
-            setLoad(false);
-            setData({...data, formSend: true});
-        }, 3000);
+        // setTimeout(() => {
+        //     setLoad(false);
+        //     setData({...data, formSend: true});
+        // }, 3000);
+        dispatch(sendUserData({token: user.token, data}))
+            .then(action => {
+                if(action.type === sendUserData.fulfilled.type){
+                    setData({...data, formSend: true});
+                }
+            })
+            .finally(() => setLoad(false))
     }
 
     const agreeChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {

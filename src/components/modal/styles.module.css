@@ -25,3 +25,13 @@
     width: 100%;
     text-align: center;
 }
+
+@media screen and (max-width: 1024px) {
+    .wrap{
+        padding: 0;
+    }
+
+    .window{
+        max-width: 100%;
+    }
+}

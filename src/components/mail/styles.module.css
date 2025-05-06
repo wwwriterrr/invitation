@@ -52,3 +52,10 @@
     border-bottom: var(--wrap-height) solid #99875c;
     border-left: var(--wrap-width) solid transparent;
 }
+
+@media screen and (max-width: 500px) {
+    :root{
+        --wrap-width: 240px;
+        --wrap-height: 160px;
+    }
+}

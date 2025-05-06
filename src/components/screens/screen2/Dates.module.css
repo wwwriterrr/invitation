@@ -55,3 +55,10 @@
 .centerBig{
     font-size: 42px;
 }
+
+@media screen and (max-width: 740px) {
+    .wrap{
+        width: 100%;
+        padding: 0 40px;
+    }
+}

@@ -2,6 +2,7 @@
     position: relative;
     padding: 100px 0;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .photo{
@@ -47,4 +48,27 @@
 
 .textContent{
     font-size: 18px;
+}
+
+@media screen and (max-width: 740px) {
+    .wrap{
+        padding-top: 50px;
+    }
+    .photo{
+        padding: 70px 0;
+    }
+    .container{
+        width: 260px;height: 260px;
+    }
+    .flower4{
+        width: 180px;height: 280px;
+        left: 30px;top: 40px;
+    }
+    .flower5{
+        width: 170px;height: 300px;
+        left: -64px;top: 16px;
+    }
+    .textWrap{
+        width: 100%;padding: 0 40px;
+    }
 }

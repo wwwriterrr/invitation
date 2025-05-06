@@ -91,3 +91,9 @@
 .formLoad button[type="submit"]{
     padding-right: 10px;
 }
+
+@media screen and (max-width: 700px) {
+    .wrap{
+        padding: 36px 40px 80px 40px;
+    }
+}

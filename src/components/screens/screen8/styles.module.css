@@ -2,3 +2,9 @@
     height: 310px;
     background-color: transparent;
 }
+
+@media screen and (max-width: 700px) {
+    .wrap{
+        height: 200px;
+    }
+}

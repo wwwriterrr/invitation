@@ -73,6 +73,10 @@
     outline: none !important;
 }
 
+.input::placeholder{
+    color: #fff;
+}
+
 .form button[type="submit"]{
     display: flex;
     align-items: center;

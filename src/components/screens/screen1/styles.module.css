@@ -130,3 +130,17 @@
         margin-top: 20px !important;
     }
 }
+
+@media screen and (max-width: 428px) {
+    .friends{
+        top: 96px;
+        text-align: left;
+        align-items: flex-start;
+        padding-right: 120px;
+    }
+    .date{
+        text-align: right;
+        padding-left: 120px;
+        padding-right: 24px;
+    }
+}

@@ -48,9 +48,12 @@ export const Screen7 = () => {
 
     const [data, setData] = useState<TFormData>(user.data);
 
-    if(typeof user.data.willBe === undefined){
+    if(!data.formSend){
         setData({...data, willBe: true});
     }
+    // if(typeof user.data.willBe === undefined){
+    //     setData({...data, willBe: true});
+    // }
 
     const submitHandler: FormEventHandler = (e) => {
         e.preventDefault();

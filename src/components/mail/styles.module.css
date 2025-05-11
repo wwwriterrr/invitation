@@ -35,8 +35,9 @@
 }
 
 .text{
-    color: #b9a87e;font-size: 26px;
-    font-family: "Pacifico", serif;
+    color: #0f1946;font-size: 26px;
+    /* font-family: "Pacifico", serif; */
+    font-family: var(--title-font);
 }
 
 .left{

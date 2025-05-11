@@ -1,4 +1,4 @@
-import photo from '../../../assets/love.jpg';
+import photo from '../../../assets/photo2.jpeg';
 import styles from './styles.module.css';
 import flower4 from '../../../assets/flower4.svg';
 import flower5 from '../../../assets/flower5.svg';

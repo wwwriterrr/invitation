@@ -3,12 +3,13 @@
 }
 
 .text{
-
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .link{
     font-style: normal;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
     color: #fff;
 }

@@ -1,5 +1,5 @@
 import styles from './styles.module.css';
-import imgSrc from '../../../assets/love.jpg';
+import imgSrc from '../../../assets/photo1.jpeg';
 
 export const Screen5 = () => {
     return (

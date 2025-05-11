@@ -221,35 +221,39 @@ export const Screen7 = () => {
                                         />
                                     </div>
                                 ) : null}
-                                <div className={styles.row}>
-                                    <div className={styles.formText}>
-                                        Отметьте флажок, если вы будете с детьми:
-                                    </div>
-                                    <Checkbox 
-                                        name={'children_select'} 
-                                        type={'checkbox'} 
-                                        value={'yes'}
-                                        label={'С детьми'}
-                                        changeHandler={childrenSelectChangeHandler}
-                                        checked={data.childrenSelect}
-                                        iconFill={'#e6d5a1'}
-                                    />
-                                </div>
-                                {data.childrenSelect ? (
-                                    <div className={`${styles.row} ${styles.inputRow}`}>
-                                        <div className={styles.inputText}>
-                                            Укажите количество детей и их возраст:
+                                {data.hideChildren ? null : (
+                                    <>
+                                        <div className={styles.row}>
+                                            <div className={styles.formText}>
+                                                Отметьте флажок, если вы будете с детьми:
+                                            </div>
+                                            <Checkbox 
+                                                name={'children_select'} 
+                                                type={'checkbox'} 
+                                                value={'yes'}
+                                                label={'С детьми'}
+                                                changeHandler={childrenSelectChangeHandler}
+                                                checked={data.childrenSelect}
+                                                iconFill={'#e6d5a1'}
+                                            />
                                         </div>
-                                        <input 
-                                            className={styles.input} 
-                                            ref={childrenRef} 
-                                            name={'children_count'} 
-                                            value={data.childrenCount} 
-                                            onChange={childrenCountChangeHandler}
-                                            placeholder={'Например: 2 детей, 7 и 14 лет'}
-                                        />
-                                    </div>
-                                ) : null}
+                                        {data.childrenSelect ? (
+                                            <div className={`${styles.row} ${styles.inputRow}`}>
+                                                <div className={styles.inputText}>
+                                                    Укажите количество детей и их возраст:
+                                                </div>
+                                                <input 
+                                                    className={styles.input} 
+                                                    ref={childrenRef} 
+                                                    name={'children_count'} 
+                                                    value={data.childrenCount} 
+                                                    onChange={childrenCountChangeHandler}
+                                                    placeholder={'Например: 2 детей, 7 и 14 лет'}
+                                                />
+                                            </div>
+                                        ) : null}
+                                    </>
+                                )}
                                 <div className={styles.row}>
                                     <button type={'submit'} disabled={load}>
                                         {load ? (

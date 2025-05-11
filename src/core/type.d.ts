@@ -22,6 +22,7 @@ export type TGuestData = {
     childrenSelect?: boolean,
     childrenCount?: string,
     local?: boolean,
+    hideChildren?: boolean,
 }
 
 export type TGuest = {

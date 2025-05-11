@@ -36,7 +36,7 @@ export const DatesBlock: FC = () => {
                     <span>2025</span>
                 </div>
                 <div className={`${styles.side} ${styles.right}`}>
-                    <span>15:00</span>
+                    <span>16:00</span>
                 </div>
             </motion.div>
         </div>

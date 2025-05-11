@@ -4,8 +4,12 @@ import flower4 from '../../../assets/flower4.svg';
 import flower5 from '../../../assets/flower5.svg';
 import {motion} from 'framer-motion';
 import { DatesBlock } from './Dates';
+import { useAppSelector } from '../../../services/store';
+import { getUser } from '../../../services/auth/slice';
 
 export const Screen2 = () => {
+    const user = useAppSelector(getUser);
+
     return (
         <div className={styles.wrap}>
             <div className={styles.photo}>
@@ -65,7 +69,7 @@ export const Screen2 = () => {
                 </motion.div>
             </div>
             <div className={styles.textWrap}>
-                <h2 className={styles.textTitle}>Дорогие гости!</h2>
+                <h2 className={styles.textTitle}>{user?.name === 'Мама и Папа' ? 'Дорогие родители' : `Дорогие гости!`}</h2>
                 <div className={styles.textContent}>
                     Совсем скоро в нашей жизни произойдет очень важное событие – наша свадьба! Мы верим и надеемся, что этот день станет красивым началом долгой и счастливой жизни.<br/><br/>
                     Позвольте пригласить вас разделить с нами радость этого дня. Подарите свою поддержку и добрые пожелания, а мы, в свою очередь, поделимся частичкой нашего счастья.

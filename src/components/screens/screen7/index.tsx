@@ -187,7 +187,7 @@ export const Screen7 = () => {
                                             name={'vine_type'} 
                                             value={data.vineType} 
                                             onChange={vineChangeHandler}
-                                            placeholder={'Красное полусухое'}
+                                            placeholder={'Например: красное полусухое'}
                                         />
                                     </div>
                                 ) : null}
@@ -202,7 +202,7 @@ export const Screen7 = () => {
                                             name={'currentAlcohol'} 
                                             value={data.currentAlcohol} 
                                             onChange={currentChangeHandler}
-                                            placeholder={'Рисовая водка из Тайланда'}
+                                            placeholder={'Например: рисовая водка из Тайланда'}
                                         />
                                     </div>
                                 ) : null}
@@ -256,7 +256,7 @@ export const Screen7 = () => {
                                             name={'children_count'} 
                                             value={data.childrenCount} 
                                             onChange={childrenCountChangeHandler}
-                                            placeholder={'2 детей, 7 и 14 лет'}
+                                            placeholder={'Например: 2 детей, 7 и 14 лет'}
                                         />
                                     </div>
                                 ) : null}
